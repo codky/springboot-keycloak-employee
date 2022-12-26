@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+keycloak:
+  realm: nexample
+  auth-server-url: http://localhost:8089/auth
+  resource: sample-client
+  public-client: true
+  bearer-only: true
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo_db?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: pw1234!
+    hikari:
+      initialization-fail-timeout: 0
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
