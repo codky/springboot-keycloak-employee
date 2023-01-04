@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">-->
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap 4</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    </head>
+</head>
+<div class="card">
+    <div class="card-header">
+        <div>
+            <p><a th:href="@{/logout}">로그아웃</a></p>
+        </div>
+    </div>
+    <img src="images/card-image.png" alt="" />
+    <div class="card-body">
+        <h3 class="card-title"><span th:text="${username}"></span></h3>
+        <p class="card-text"><span th:text="${email}"></span></p>
+
+        <div>
+            <span th:text="${emailVerified} ? '이메일 인증 완료' : '이메일 인증 안됨'"></span>
+            <a th:if="${emailVerified == false}" href="#" class="btn btn-primary" th:href="@{/verifyEmail}">인증</a>
+            <a th:if="${emailVerified == true}" href="#" class="btn btn-primary" th:href="@{/updateEmailForm}">이메일 변경</a>
+        </div>
+
+<!--            <span th:if="${emailVerified} ? readonly : '인증하기'" th:href="@{/users/verifyEmail}"></span>-->
+<!--            <span th:if="${emailVerified.equals('false')}" th:href="@{/users/verifyEmail}">이메일 인증하기</span>-->
+
+
+
+<!--        </span><p th:text="${emailVerified == 'true' ? '(이메일 인증 완료)' : '(이메일 인증 안됨)'}"></p>-->
+
+    </div>
+</div>
+<br>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<body>
+
+<div>
+    <p><a th:href="@{/id-token}">ID Token</a></p>
+    <p><a th:href="@{/access-token}">Access Token</a></p>
+    <p><a th:href="@{/sessions}">모든 로그인 목록(세션 로그아웃, 전체 세션 로그아웃)</a></p>
+    <p><a th:href="@{/info-control}">정보변경하기</a></p>
+<!--    <p><a th:href="@{/users/logoutAll}">모든 세션 로그아웃</a></p>-->
+    <p><a th:href="@{/registerRequiredAction}">2차인증 OTP 설정하기</a></p>
+    <p><a th:href="@{/deleteRequiredAction}">2차인증 OTP 해제하기</a></p>
+    <p><a th:href="@{/updatePassword}">비밀번호 변경하기</a></p>
+    <p><a th:href="@{/userinfo}">유저 정보</a></p>
+    <p><a th:href="@{/user}">정보 보기</a></p>
+    <p><a th:href="@{/common/kmcis_main}">본인인증 테스트</a></p>
+
+</div>
+
+<div>
+    <p><a th:href="@{/admin-resource}">관리자용 페이지</a></p>
+</div>
+</body>
+</html>
